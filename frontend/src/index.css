@@ -1,1 +1,87 @@
 @import "tailwindcss";
+
+:root {
+  --color-root: #FCFCFA;
+  --color-void: #0F0F0F;
+  --color-stone: #565656;
+  --color-mist: #E2E0DD;
+  --color-ember: #C84B31;
+  --color-ink: #2D4059;
+  --color-seed: #1E6B52;
+  --color-wheat: #F3EFE6;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Consolas', monospace;
+
+  --transition-duration: 200ms;
+  --transition-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --color-root: #0F0F0F;
+  --color-void: #FCFCFA;
+  --color-stone: #A5A5A5;
+  --color-mist: #2E2E2E;
+  --color-wheat: #1C1C1A;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%;
+  line-height: 1.5;
+  background-color: var(--color-root);
+  color: var(--color-void);
+  transition: background-color var(--transition-duration) var(--transition-easing),
+              color var(--transition-duration) var(--transition-easing);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.shadow-flat {
+  box-shadow: 0 1px 0 0 var(--color-mist);
+}
+
+.hr-mist {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-mist);
+}
+
+.text-stone {
+  color: var(--color-stone);
+}
