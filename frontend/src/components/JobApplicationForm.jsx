@@ -7,6 +7,7 @@ function JobApplicationForm({ onAdd }) {
   const [jobTitle, setJobTitle] = useState('');
   const [dateApplied, setDateApplied] = useState('');
   const [status, setStatus] = useState('Applied');
+  const [notes, setNotes] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +15,8 @@ function JobApplicationForm({ onAdd }) {
       company: companyName,
       title: jobTitle,
       date: dateApplied,
-      status: status
+      status: status,
+      notes: notes
     });
     
     // Reset form
@@ -22,6 +24,7 @@ function JobApplicationForm({ onAdd }) {
     setJobTitle('');
     setDateApplied('');
     setStatus('Applied');
+    setNotes('');
   };
 
   return (
@@ -97,6 +100,20 @@ function JobApplicationForm({ onAdd }) {
             </svg>
           </div>
         </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor="notes" className="text-xs uppercase tracking-wider text-(--color-stone)">
+          Notes
+        </label>
+        <textarea
+          id="notes"
+          name="notes"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          className="w-full p-3 border border-(--color-mist) bg-transparent text-(--color-void) placeholder:text-(--color-stone) focus:border-(--color-ember) focus:outline-none transition-colors duration-200 min-h-[100px] resize-none"
+          placeholder="Add any details about this job application..."
+        />
       </div>
 
       <button
